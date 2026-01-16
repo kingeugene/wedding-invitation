@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Євген & Яна — Запрошення</title>
+
+    <!-- Google Fonts (elegant serif + script) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+<!-- Sticky mini navigation -->
+<div class="nav" aria-label="Навігація">
+    <div class="nav-inner">
+        <div class="nav-brand">
+            <div class="names">Євген & Яна</div>
+            <div class="date">05.06.2026</div>
+        </div>
+        <div class="nav-actions">
+            <a href="#invitation">Invitation</a>
+            <a href="#location">Location</a>
+            <a href="#timing">Timing</a>
+            <a href="#dress" data-hide="mobile">Dress</a>
+            <a href="#details" data-hide="mobile">Details</a>
+            <a href="#rsvp">RSVP</a>
+        </div>
+    </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="home">
+    <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+
+    <div class="hero-content fade-in">
+        <h1 class="hero-names">Євген & Яна</h1>
+        <div class="hero-date">05.06.2026</div>
+
+        <div class="countdown-card" role="group" aria-label="Зворотній відлік до весілля">
+            <div class="countdown-title" id="cdTitle">До нашого весілля залишилось</div>
+            <div class="countdown" id="countdown">
+                <div class="cd-item"><div class="cd-num" id="cdD">00</div><div class="cd-label">День</div></div>
+                <div class="cd-item"><div class="cd-num" id="cdH">00</div><div class="cd-label">Год</div></div>
+                <div class="cd-item"><div class="cd-num" id="cdM">00</div><div class="cd-label">Хв</div></div>
+                <div class="cd-item"><div class="cd-num" id="cdS">00</div><div class="cd-label">Сек</div></div>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <button class="btn" id="toInvitation">Переглянути запрошення</button>
+
+            <button class="hero-down" id="toNext" aria-label="Прокрутити вниз">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- INVITATION -->
+<section class="section" id="invitation">
+    <div class="container">
+        <h2 class="title fade-in">Invitation</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="card fade-in" style="max-width: 680px; margin: 0 auto;">
+            <p style="margin:0; font-size: 22px; font-weight: 700;">Дорогі друзі та родино,</p>
+            <p style="margin:16px 0 0; font-size: 20px; line-height: 1.55;">
+                Ми будемо раді розділити з вами один із найважливіших днів нашого життя.
+                Ваша присутність зробить це свято по-справжньому теплим і незабутнім.
+                <br/><br/>
+                Хочемо створити атмосферу спокою, щирості та любові — ту, яка залишається в пам’яті надовго.
+                Чекаємо на вас.
+            </p>
+        </div>
+
+        <div class="photo fade-in" style="max-width: 720px; margin-inline: auto;">
+            <img src="assets/couple.jpg" alt="Фото пари" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+    <div class="container">
+        <h2 class="title fade-in">Location</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="card fade-in" style="max-width: 720px; margin: 0 auto; text-align:center;">
+            <p style="margin:0; font-size: 22px; font-weight: 700;">
+                Наше свято відбудеться у Варшаві! Згодом ви отримаєте точну адресу
+            </p>
+
+            <div class="location-addr">
+                Польща, місто Варшава
+            </div>
+
+            <div style="margin-top: 18px; display:grid; place-items:center;">
+                <a class="btn" href="https://maps.app.goo.gl/FLBU54i7J5P11id57" target="_blank" rel="noopener">
+                    <span aria-hidden="true">📍</span> Переглянути на мапі
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMING -->
+<section class="section" id="timing">
+    <div class="container">
+        <h2 class="title fade-in">Timing</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="fade-in" style="max-width: 760px; margin: 0 auto;">
+            <div class="timeline">
+                <div class="t-row">
+                    <div class="t-time">14:00</div>
+                    <div class="t-dotwrap">
+                        <div class="t-dot"></div>
+                        <div class="t-line"></div>
+                    </div>
+                    <div>
+                        <p class="t-title">Збір гостей у welcome-зоні</p>
+                        <p class="t-sub">Легкі закуски та напої</p>
+                    </div>
+                </div>
+
+                <div class="t-row">
+                    <div class="t-time">15:00</div>
+                    <div class="t-dotwrap">
+                        <div class="t-dot"></div>
+                        <div class="t-line"></div>
+                    </div>
+                    <div>
+                        <p class="t-title">Весільна церемонія</p>
+                        <p class="t-sub">Урочиста частина</p>
+                    </div>
+                </div>
+
+                <div class="t-row">
+                    <div class="t-time">15:30</div>
+                    <div class="t-dotwrap">
+                        <div class="t-dot"></div>
+                        <div class="t-line"></div>
+                    </div>
+                    <div>
+                        <p class="t-title">Фотосесія з гостями</p>
+                        <p class="t-sub">Спільні спогади</p>
+                    </div>
+                </div>
+
+                <div class="t-row">
+                    <div class="t-time">16:00</div>
+                    <div class="t-dotwrap">
+                        <div class="t-dot"></div>
+                        <!-- last item: no line -->
+                    </div>
+                    <div>
+                        <p class="t-title">Банкет, їжа та танці</p>
+                        <p class="t-sub">Святкування до пізнього вечора</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DRESS CODE -->
+<section class="section" id="dress">
+    <div class="container">
+        <h2 class="title fade-in">Dress-code</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="palette fade-in" aria-label="Палітра кольорів">
+            <div class="swatch" style="background:#008080" title="#008080"></div>
+            <div class="swatch" style="background:#005f6a" title="#005f6a"></div>
+            <div class="swatch" style="background:#0b3d2e" title="#0b3d2e"></div>
+            <div class="swatch" style="background:#4a376f" title="#4a376f"></div>
+            <div class="swatch" style="background:#D4AF37" title="#D4AF37"></div>
+            <div class="swatch" style="background:#E5DDD0" title="#E5DDD0"></div>
+        </div>
+
+        <div class="card fade-in" style="max-width: 720px; margin: 0 auto;">
+            <p style="margin:0; font-size: 20px; line-height: 1.6;">
+                Ми будемо раді, якщо ви підтримаєте нашу колірну палітру у своєму образі.
+                Відтінки бірюзового, бежевого, м’ятного та пісочного створять гармонійну атмосферу.
+                <br/><br/>
+                <span style="text-align: center; color: var(--muted); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 14px;">
+            Але найголовніше — ваш комфорт та гарний настрій. Одягайтесь так, щоб почуватися впевнено та святково.
+          </span>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section" id="details">
+    <div class="container">
+        <h2 class="title fade-in">Details</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="details-grid" style="max-width: 760px; margin: 0 auto;">
+            <div class="card fade-in">
+                <div class="d-head">
+                    <div class="icon" aria-hidden="true">🌿</div>
+                    <h3>Квіти</h3>
+                </div>
+                <p style="margin:0; font-size: 20px; line-height: 1.55;">
+                    Будь ласка, без квітів. Замість цього ми будемо раді вашій присутності та теплим словам.
+                    Якщо бажаєте зробити подарунок — дивіться нижче.
+                </p>
+            </div>
+
+            <div class="card fade-in">
+                <div class="d-head">
+                    <div class="icon" aria-hidden="true">🎁</div>
+                    <h3>Подарунки</h3>
+                </div>
+                <p style="margin:0; font-size: 20px; line-height: 1.55;">
+                    Якщо захочете привітати нас, будемо вдячні за внесок у наше майбутнє сімейне життя та спільні мрії.
+                    <br/><br/>
+                    <span style="color: var(--muted); font-style: italic; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 14px;">
+              Але найкращий подарунок — ваша щира посмішка та веселощі разом з нами!
+            </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="section" id="rsvp">
+    <div class="container">
+        <h2 class="title fade-in">RSVP</h2>
+        <div class="divider fade-in"></div>
+
+        <div class="card fade-in" style="max-width: 760px; margin: 0 auto;">
+            <p class="form-note" style="margin:0 0 18px;">
+                Просимо вас відповісти на кілька запитань
+            </p>
+
+            <form class="form" id="rsvpForm" novalidate>
+                <div>
+                    <label for="name">Ваше ім’я</label>
+                    <input id="name" name="name" type="text" placeholder="Введіть ваше ім’я" required />
+                </div>
+
+                <div>
+                    <label>Чи плануєте ви бути на весіллі?</label>
+                    <div class="radio-group" role="radiogroup" aria-label="Чи будете на весіллі">
+                        <label class="radio">
+                            <input type="radio" name="attend" value="yes" required />
+                            <span>Так, обов’язково буду!</span>
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="attend" value="no" />
+                            <span>На жаль, не зможу</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="drinks">Побажання по алкогольним напоям</label>
+                    <textarea id="drinks" name="drinks" placeholder="Наприклад: вино, шампанське, віскі…"></textarea>
+                </div>
+
+                <div>
+                    <label for="diet">Алергії або харчові обмеження</label>
+                    <textarea id="diet" name="diet" placeholder="Опціонально"></textarea>
+                </div>
+
+                <button class="btn" type="submit">Відправити</button>
+
+                <div class="toast" id="toast" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacts">
+    <div class="container fade-in">
+        <div style="font-size: 22px; font-weight: 700;">Питання? Напишіть або зателефонуйте</div>
+
+        <div class="footer-icons">
+            <!-- Replace with your real phone/email -->
+            <a class="foot-ic" href="tel:+380660224246" aria-label="Телефон">
+                ☎️
+            </a>
+            <a class="foot-ic" href="mailto:ya.ya.yu1379@gmail.com" aria-label="Email">
+                ✉️
+            </a>
+        </div>
+
+        <div class="signature">Євген & Яна</div>
+    </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
