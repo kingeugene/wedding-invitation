@@ -199,10 +199,21 @@ if (!id || !Array.isArray(allGuests)) {
 // Init drink chips regardless of id (it's independent and optional)
 renderDrinkChips();
 
-async function sendToGoogleForm({attendingStr, notAttendingStr, drinks, diet}) {
+async function sendToGoogleForm({attending, notAttending, drinks, diet}) {
     const data = new URLSearchParams();
-    data.append(ENTRY_ATTENDING, attendingStr);
-    data.append(ENTRY_NOT_ATTENDING, notAttendingStr);
+
+    if (Array.isArray(attending)) {
+        for (const name of attending) {
+            if (name) data.append(ENTRY_ATTENDING, name);
+        }
+    }
+
+    if (Array.isArray(notAttending)) {
+        for (const name of notAttending) {
+            if (name) data.append(ENTRY_NOT_ATTENDING, name);
+        }
+    }
+
     data.append(ENTRY_DRINKS, drinks || "");
     data.append(ENTRY_DIET, diet || "");
 
@@ -223,8 +234,6 @@ form?.addEventListener('submit', async (e) => {
 
     const attending = allGuests.filter(n => selected.has(n));
     const notAttending = allGuests.filter(n => !selected.has(n));
-    const attendingStr = attending.join(', ');
-    const notAttendingStr = notAttending.join(', ');
     let drinks = '';
     if (selectedDrinks.size > 0) {
         drinks = selectedDrinks.has(DRINK_NONE)
@@ -234,7 +243,7 @@ form?.addEventListener('submit', async (e) => {
     const diet = (dietEl?.value || '').trim();
 
     try {
-        await sendToGoogleForm({ attendingStr, notAttendingStr, drinks, diet });
+        await sendToGoogleForm({ attending, notAttending, drinks, diet });
         showToast('Дякуємо! Ми отримали вашу відповідь 🤍');
         if (dietEl) dietEl.value = '';
     } catch (err) {
