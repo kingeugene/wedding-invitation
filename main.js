@@ -83,8 +83,22 @@ const guestChips = document.getElementById('guestChips');
 const guestError = document.getElementById('guestError');
 const noSelectedInfo = document.getElementById('noSelectedInfo');
 const submitBtn = document.getElementById('submitBtn');
-const drinksEl = document.getElementById('drinks');
+const drinksChips = document.getElementById('drinksChips');
 const dietEl = document.getElementById('diet');
+
+// Drinks chips options
+const DRINK_NONE = 'Не вживаю алкоголь';
+const DRINK_OPTIONS = [
+    'Вино (червоне)',
+    'Вино (біле)',
+    'Просекко / ігристе',
+    'Пиво',
+    'Віскі',
+    'Горілка',
+    'Джин / тонік',
+    DRINK_NONE,
+];
+const selectedDrinks = new Set();
 
 function showToast(msg, ok = true) {
     toast.textContent = msg;
@@ -139,6 +153,41 @@ function disableSubmit(disabled) {
     submitBtn.classList.toggle('secondary', !!disabled);
 }
 
+// ----- Drinks chips rendering & logic -----
+function renderDrinkChips() {
+    if (!drinksChips) return;
+    drinksChips.innerHTML = '';
+    for (const opt of DRINK_OPTIONS) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'chip';
+        btn.textContent = opt;
+        btn.setAttribute('aria-pressed', selectedDrinks.has(opt) ? 'true' : 'false');
+        btn.addEventListener('click', () => {
+            if (opt === DRINK_NONE) {
+                // Toggle NONE; when turning on, clear other selections
+                if (selectedDrinks.has(DRINK_NONE)) {
+                    selectedDrinks.delete(DRINK_NONE);
+                } else {
+                    selectedDrinks.clear();
+                    selectedDrinks.add(DRINK_NONE);
+                }
+            } else {
+                if (selectedDrinks.has(opt)) {
+                    selectedDrinks.delete(opt);
+                } else {
+                    selectedDrinks.add(opt);
+                    // Ensure NONE is off
+                    selectedDrinks.delete(DRINK_NONE);
+                }
+            }
+            // Re-render to update states consistently
+            renderDrinkChips();
+        });
+        drinksChips.appendChild(btn);
+    }
+}
+
 // Init state
 if (!id || !Array.isArray(allGuests)) {
     if (guestError) guestError.style.display = 'block';
@@ -147,6 +196,8 @@ if (!id || !Array.isArray(allGuests)) {
     renderChips();
     updateZeroInfo();
 }
+// Init drink chips regardless of id (it's independent and optional)
+renderDrinkChips();
 
 async function sendToGoogleForm({attendingStr, notAttendingStr, drinks, diet}) {
     const data = new URLSearchParams();
@@ -174,13 +225,17 @@ form?.addEventListener('submit', async (e) => {
     const notAttending = allGuests.filter(n => !selected.has(n));
     const attendingStr = attending.join(', ');
     const notAttendingStr = notAttending.join(', ');
-    const drinks = (drinksEl?.value || '').trim();
+    let drinks = '';
+    if (selectedDrinks.size > 0) {
+        drinks = selectedDrinks.has(DRINK_NONE)
+            ? DRINK_NONE
+            : Array.from(selectedDrinks).join(', ');
+    }
     const diet = (dietEl?.value || '').trim();
 
     try {
         await sendToGoogleForm({ attendingStr, notAttendingStr, drinks, diet });
         showToast('Дякуємо! Ми отримали вашу відповідь 🤍');
-        if (drinksEl) drinksEl.value = '';
         if (dietEl) dietEl.value = '';
     } catch (err) {
         showToast('Не вдалося надіслати. Спробуйте ще раз.', false);

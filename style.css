@@ -505,6 +505,12 @@ input[type="text"]:focus, textarea:focus{
     user-select: none;
     transition: transform .12s ease, background .12s ease, color .12s ease, opacity .12s ease;
 }
+
+#drinksChips.chips .chip {
+    font-size: 13px;
+    font-weight: 400;
+}
+
 .chip[aria-pressed="true"]{
     background: var(--teal);
     color: #fff;
