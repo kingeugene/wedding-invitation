@@ -243,22 +243,22 @@
             </p>
 
             <form class="form" id="rsvpForm" novalidate>
-                <div>
-                    <label for="name">Ваше ім’я</label>
-                    <input id="name" name="name" type="text" placeholder="Введіть ваше ім’я" required />
+                <div id="guestError" class="alert" style="display:none;" role="alert">
+                    Ми не змогли визначити список гостей. Будь ласка, відкрийте форму за посиланням із запрошення.
                 </div>
 
-                <div>
-                    <label>Чи плануєте ви бути на весіллі?</label>
-                    <div class="radio-group" role="radiogroup" aria-label="Чи будете на весіллі">
-                        <label class="radio">
-                            <input type="radio" name="attend" value="yes" required />
-                            <span>Так, обов’язково буду!</span>
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="attend" value="no" />
-                            <span>На жаль, не зможу</span>
-                        </label>
+                <div class="form-group">
+                    <div class="form-head">
+                        <div class="form-title">Хто буде присутній?</div>
+                        <div class="form-hint">
+                            Натисніть на ім’я, якщо гість не зможе прийти.
+                        </div>
+                    </div>
+
+                    <div id="guestChips" class="chips" role="group" aria-label="Список гостей"></div>
+                    <div id="chipsNote" class="form-note-small">Не обрані імена ми відмітимо як “не зможе бути”.</div>
+                    <div id="noSelectedInfo" class="form-note-small" style="display:none; color: var(--muted);">
+                        Зараз позначено, що ніхто не зможе прийти. Ви все одно можете надіслати відповідь.
                     </div>
                 </div>
 
@@ -272,7 +272,7 @@
                     <textarea id="diet" name="diet" placeholder="Опціонально"></textarea>
                 </div>
 
-                <button class="btn" type="submit">Відправити</button>
+                <button class="btn" id="submitBtn" type="submit">Відправити</button>
 
                 <div class="toast" id="toast" role="status" aria-live="polite"></div>
             </form>
@@ -298,6 +298,6 @@
         <div class="signature">Євген & Яна</div>
     </div>
 </footer>
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>
 </body>
 </html>
