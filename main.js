@@ -33,7 +33,7 @@
 
     // --------- Countdown ----------
     // Wedding date: 15 June 2025 (local time)
-    const weddingDate = new Date("2026-06-05T00:00:00");
+    const weddingDate = new Date("2026-06-05T14:00:00");
     const cdTitle = document.getElementById("cdTitle");
     const cdD = document.getElementById("cdD");
     const cdH = document.getElementById("cdH");
