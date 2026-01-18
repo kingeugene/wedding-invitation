@@ -105,7 +105,6 @@ function showToast(msg, ok = true) {
     toast.style.borderColor = ok ? 'rgba(0,128,128,.25)' : 'rgba(180,40,40,.25)';
     toast.style.background = ok ? 'rgba(0,128,128,.10)' : 'rgba(180,40,40,.10)';
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 5200);
 }
 
 const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeTVcdPcaqnSALkWBBJJHgOvf5zSC30QC7ByTay62opTXcGSA/formResponse';
@@ -119,7 +118,7 @@ const ENTRY_DIET = "entry.415427113";
 // Get id and guests list
 const id = new URLSearchParams(location.search).get('id');
 const allGuests = id ? GUESTS[id] : undefined;
-const selected = new Set(Array.isArray(allGuests) ? allGuests : []);
+const selected = new Set();
 
 function updateZeroInfo() {
     if (!noSelectedInfo) return;
@@ -244,7 +243,8 @@ form?.addEventListener('submit', async (e) => {
 
     try {
         await sendToGoogleForm({ attending, notAttending, drinks, diet });
-        showToast('Дякуємо! Ми отримали вашу відповідь 🤍');
+        document.querySelector('.form-container').classList.add('hidden');
+        showToast('Дякуємо! Ми отримали вашу відповідь ❤️');
         if (dietEl) dietEl.value = '';
     } catch (err) {
         showToast('Не вдалося надіслати. Спробуйте ще раз.', false);
