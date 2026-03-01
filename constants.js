@@ -115,5 +115,25 @@ export const GUESTS = {
     ],
     krivobok: [
         "Кривобок Тамара"
+    ],
+    kostiuk: [
+        "Alex",
+        "Eugenia ",
+        "Lev",
+    ],
+    turchak: [
+        'Alex T',
+        'Anastasiia'
+    ],
+    den: [
+        "Ден",
+        "Саша"
+    ],
+    yevhen: [
+        "Женя"
+    ],
+    lyona: [
+        "Льоша",
+        "Соня"
     ]
 }
