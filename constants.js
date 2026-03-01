@@ -130,7 +130,8 @@ export const GUESTS = {
         "Саша"
     ],
     yevhen: [
-        "Женя"
+        "Євген",
+        "Аліна"
     ],
     lyona: [
         "Льоша",
